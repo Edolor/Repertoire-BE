@@ -1,0 +1,41 @@
+# Use the official Python image from the DockerHub
+FROM python:3.10-slim
+
+# create directory for the app user
+RUN mkdir -p /home/app
+
+# create the app user
+RUN addgroup --system app && adduser --system --group app
+
+ENV PYTHONDONTWRITEBYTECODE 1
+ENV PYTHONUNBUFFERED 1
+
+# create the appropriate directories
+ENV HOME=/home/app
+ENV APP_HOME=/home/app/web
+RUN mkdir $APP_HOME
+WORKDIR $APP_HOME
+
+# Copy the dependencies file to the working directory
+COPY requirements.txt .
+
+# Install any dependencies
+RUN pip install --upgrade pip
+RUN pip install --no-cache-dir -r requirements.txt
+
+# # copy initial-db-setup.sh
+# COPY ./initial-db-setup.sh .
+# RUN sed -i 's/\r$//g'  $APP_HOME/initial-db-setup.sh
+# RUN chmod +x  $APP_HOME/initial-db-setup.sh
+
+# Copy the content of the local src directory to the working directory
+COPY . $APP_HOME
+
+# chown all the files to the app user
+RUN chown -R app:app $APP_HOME
+
+# change to the app user
+USER app
+
+# run migration setup script
+# ENTRYPOINT ["/home/app/web/initial-db-setup.sh"]

@@ -1,0 +1,33 @@
+version: "3.8"
+
+services:
+  backend:
+    build:
+      context: .
+      dockerfile: Dockerfile.prod
+    command: gunicorn base.wsgi:application --bind 0.0.0.0:8000
+    networks:
+      - server-side
+    volumes:
+      - json-data:/app
+    ports:
+      - "8000:8000"
+    depends_on:
+      - database
+
+  database:
+    image: postgres
+    shm_size: 500mb
+    environment:
+      POSTGRES_PASSWORD: Jz23dds/1!@##!@.23
+    networks:
+      - server-side
+    volumes:
+      - db-data:/var/lib/postgresql/data
+
+networks:
+  server-side: {}
+
+volumes:
+  db-data: {}
+  json-data: {}

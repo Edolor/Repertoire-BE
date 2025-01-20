@@ -1,0 +1,7 @@
+portfolio.json
+node_modules
+/.pnp
+.pnp.js
+__pycache__
+**/__pycache__/
+.git
