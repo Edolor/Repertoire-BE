@@ -2,12 +2,17 @@
 set -e
 
 echo "Starting new deployment..."
-cd /home/ec2-user/app || exit 1
 
-echo "Building and starting Docker containers..."
+echo "Executing fetch_env..."
 
 chmod +x ./fetch_env.sh  # Make script executable
 ./fetch_env.sh         # Generate .env file
+
+echo "Completed fetch_env()... Continuing"
+
+cd /home/ec2-user/app || exit 1
+
+echo "Building and starting Docker containers..."
 
 sudo docker-compose -f docker-compose.prod.yml up --build -d
 
