@@ -1,8 +1,6 @@
 # Use the official Python image from the DockerHub
 FROM python:3.10-slim
 
-RUN apt-get update && apt-get install -y libcrypt1
-
 # create directory for the app user
 RUN mkdir -p /home/app
 
@@ -40,4 +38,5 @@ RUN chown -R app:app $APP_HOME
 USER app
 
 # run migration setup script
+ENTRYPOINT ["./build.sh"]
 # ENTRYPOINT ["/home/app/web/initial-db-setup.sh"]

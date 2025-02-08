@@ -6,6 +6,6 @@ python manage.py migrate sessions
 
 python manage.py migrate
 
-python manage.py loaddata backup.json
+# python manage.py loaddata backup.json
 
 exec "$@"
