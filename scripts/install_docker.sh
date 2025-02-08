@@ -17,3 +17,9 @@ sudo curl -L "https://github.com/docker/compose/releases/download/${DOCKER_COMPO
 sudo chmod +x /usr/local/bin/docker-compose
 
 echo "Docker and Docker Compose installed successfully!"
+
+echo "Installing libxcrypt compat"
+# 
+yum install -y libxcrypt-compat
+
+echo "libxcrypt compat installation complete!"
