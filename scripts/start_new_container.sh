@@ -6,7 +6,7 @@ cd /home/ec2-user/app || exit 1
 
 echo "Building and starting Docker containers..."
 
-chmod +x fetch_env.sh  # Make script executable
+chmod +x ./fetch_env.sh  # Make script executable
 ./fetch_env.sh         # Generate .env file
 
 sudo docker-compose -f docker-compose.prod.yml up --build -d
