@@ -28,6 +28,10 @@ RUN pip install --no-cache-dir -r requirements.txt
 # RUN sed -i 's/\r$//g'  $APP_HOME/initial-db-setup.sh
 # RUN chmod +x  $APP_HOME/initial-db-setup.sh
 
+COPY ./build.sh .
+RUN sed -i 's/\r$//g'  $APP_HOME/build.sh
+RUN chmod +x  $APP_HOME/build.sh
+
 # Copy the content of the local src directory to the working directory
 COPY . $APP_HOME
 
