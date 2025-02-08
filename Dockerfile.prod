@@ -42,5 +42,5 @@ RUN chown -R app:app $APP_HOME
 USER app
 
 # run migration setup script
-ENTRYPOINT ["./build.sh"]
+# ENTRYPOINT ["./build.sh"]
 # ENTRYPOINT ["/home/app/web/initial-db-setup.sh"]

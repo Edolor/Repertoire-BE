@@ -7,7 +7,12 @@ services:
       dockerfile: Dockerfile.prod
     env_file:
       - .env  # Mount the .env file
-    command: gunicorn base.wsgi:application --bind 0.0.0.0:8000
+    command:  >
+      sh -c "
+      python manage.py makemigrations --no-input &&
+      python manage.py migrate --no-input &&
+      gunicorn base.wsgi:application --bind 0.0.0.0:8000
+      "
     networks:
       - server-side
     volumes:
