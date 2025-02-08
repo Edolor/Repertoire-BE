@@ -5,7 +5,8 @@ echo "Starting new deployment..."
 
 echo "Executing fetch_env..."
 
-chmod +x ./fetch_env.sh  # Make script executable
+cd /home/ec2-user/app/scripts
+chmod +x fetch_env.sh  # Make script executable
 ./fetch_env.sh         # Generate .env file
 
 echo "Completed fetch_env()... Continuing"
