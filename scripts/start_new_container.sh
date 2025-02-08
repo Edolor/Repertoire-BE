@@ -9,6 +9,8 @@ cd /home/ec2-user/app/scripts
 chmod +x fetch_env.sh  # Make script executable
 ./fetch_env.sh         # Generate .env file
 
+mv /home/ec2-user/app/scripts/.env /home/ec2-user/app
+
 echo "Completed fetch_env()... Continuing"
 
 cd /home/ec2-user/app || exit 1
@@ -21,10 +23,10 @@ echo "Waiting for database to be ready..."
 sleep 10  # Ensure PostgreSQL starts before running migrations
 
 echo "Running Django migrations..."
-# sudo docker-compose -f docker-compose.prod.yml exec -T backend python manage.py migrate
+sudo docker-compose -f docker-compose.prod.yml exec -T backend python manage.py migrate
 
 echo "Collecting static files..."
-# sudo docker-compose -f docker-compose.prod.yml exec -T backend python manage.py collectstatic --noinput
+sudo docker-compose -f docker-compose.prod.yml exec -T backend python manage.py collectstatic --noinput
 
 echo "Restarting containers..."
 sudo docker-compose -f docker-compose.prod.yml restart
