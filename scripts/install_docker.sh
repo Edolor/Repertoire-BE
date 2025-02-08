@@ -1,5 +1,5 @@
 #!/bin/bash
-set -e  # Exit on any error
+set -e  # Exit on error
 
 echo "Updating package list..."
 sudo yum update -y  # For Amazon Linux
@@ -11,17 +11,9 @@ echo "Starting Docker service..."
 sudo systemctl start docker
 sudo systemctl enable docker  # Ensure Docker starts on reboot
 
-echo "Checking if Docker Compose is installed..."
-if ! command -v docker-compose &> /dev/null
-then
-    echo "Installing Docker Compose..."
-    sudo yum install -y docker-compose-plugin
-else
-    echo "Docker Compose is already installed."
-fi
-
-echo "Verifying Docker and Docker Compose installation..."
-docker --version
-docker compose version
+echo "Installing Docker Compose..."
+DOCKER_COMPOSE_VERSION="1.29.2"
+sudo curl -L "https://github.com/docker/compose/releases/download/${DOCKER_COMPOSE_VERSION}/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+sudo chmod +x /usr/local/bin/docker-compose
 
 echo "Docker and Docker Compose installed successfully!"
