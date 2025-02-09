@@ -83,7 +83,7 @@ For local development without Docker, you can set up the backend by following th
 
    ```bash
    python -m venv venv
-   source venv/bin/activate  # On Windows, use venv\Scriptsctivate
+   source venv/bin/activate  # On Windows, use venv\Scripts\Activate
    ```
 
 3. Install the dependencies:
