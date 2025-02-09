@@ -52,8 +52,8 @@ To get started with Docker, clone the repository and use the provided `docker-co
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/your-username/portfolio-backend.git
-   cd portfolio-backend
+   git clone https://github.com/Edolor/Repertoire-BE
+   cd Repertoire-BE
    ```
 
 2. Build and start the containers:
@@ -75,8 +75,8 @@ For local development without Docker, you can set up the backend by following th
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/your-username/portfolio-backend.git
-   cd portfolio-backend
+   git clone https://github.com/Edolor/Repertoire-BE
+   cd Repertoire-BE
    ```
 
 2. Create and activate a virtual environment:
