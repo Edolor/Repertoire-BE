@@ -33,5 +33,4 @@ aws s3 cp s3://menaportfolio/cloudflare/cloudflare.key /etc/ssl/cloudflare/cloud
 aws s3 cp s3://menaportfolio/cloudflare/nginx.conf /etc/ssl/cloudflare/nginx.conf
 
 sudo yum install -y nginx
-sudo systemctl start nginx
-sudo systemctl enable nginx
+sudo systemctl restart nginx
