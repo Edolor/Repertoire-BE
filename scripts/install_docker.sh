@@ -45,8 +45,12 @@ echo "Installation complete, setting up job!"
 
 BASE_PATH="/home/ec2-user/app"
 
-sudo chmod +x $BASE_PATH/scripts/dump_to_s3.sh
-sudo chmod +r $BASE_PATH/scripts/dump_to_s3.sh
+sudo chmod +x /home/ec2-user/app/scripts/dump_to_s3.sh
+sudo chmod +r /home/ec2-user/app/scripts/dump_to_s3.sh
+
+ls -la /home/ec2-user/app/scripts/
+
+cat /goat
 
 SCRIPT_PATH="$BASE_PATH/scripts/dump_to_s3.sh"
 LOG_FILE="$BASE_PATH/scripts/dump_to_s3.log"
