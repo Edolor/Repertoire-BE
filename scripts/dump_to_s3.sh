@@ -1,4 +1,5 @@
 #!/bin/bash
+set -e
 
 # Set environment variables
 BASE_PATH="/home/ec2-user/app"
