@@ -18,14 +18,14 @@ services:
       python manage.py migrate sessions &&
       python manage.py migrate &&
       python manage.py loaddata backup.json &&
-      gunicorn base.wsgi:application --bind 0.0.0.0:8000
+      gunicorn base.wsgi:application --bind 0.0.0.0:80
       "
     networks:
       - server-side
     volumes:
       - json-data:/app
     ports:
-      - "8000:8000"
+      - "80:80"
     depends_on:
       - database
 
