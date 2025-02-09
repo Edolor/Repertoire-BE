@@ -39,7 +39,7 @@ services:
     networks:
       - server-side
     ports:
-      - "80:80"  # Expose port 80 for HTTP traffic
+      # - "80:80"  # Expose port 80 for HTTP traffic
       - "443:443"  # HTTPS traffic
     depends_on:
       - backend
