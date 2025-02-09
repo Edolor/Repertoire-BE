@@ -31,6 +31,3 @@ echo "libxcrypt compat installation complete!"
 aws s3 cp s3://menaportfolio/cloudflare/cloudflare.crt /etc/ssl/cloudflare/cloudflare.crt
 aws s3 cp s3://menaportfolio/cloudflare/cloudflare.key /etc/ssl/cloudflare/cloudflare.key
 aws s3 cp s3://menaportfolio/cloudflare/nginx.conf /etc/ssl/cloudflare/nginx.conf
-
-sudo yum install -y nginx
-sudo systemctl restart nginx
