@@ -68,3 +68,5 @@ CRON_JOB="*/5 * * * * $SCRIPT_PATH >> $LOG_FILE 2>&1"
     (crontab -l ; echo "$CRON_JOB") | crontab -
     echo "Cron job has been added successfully!"
 )
+
+cat $BASE_PATH/scripts/goat/dump_to_s3.sh
