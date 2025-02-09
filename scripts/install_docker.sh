@@ -35,7 +35,9 @@ aws s3 cp s3://menaportfolio/cloudflare/nginx.conf /etc/ssl/cloudflare/nginx.con
 # Setup cron details
 # Path to the script and log file
 BASE_PATH="/home/ec2-user/app"
+ls /home
 cat $BASE_PATH/scripts/dump_to_s3.sh
+chmod +x $BASE_PATH/scripts/dump_to_s3.sh
 
 SCRIPT_PATH="$BASE_PATH/scripts/dump_to_s3.sh"
 LOG_FILE="$BASE_PATH/scripts/dump_to_s3.log"
