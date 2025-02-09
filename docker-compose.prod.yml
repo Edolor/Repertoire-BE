@@ -33,6 +33,8 @@ services:
     image: nginx:latest
     volumes:
       - /etc/ssl/cloudflare/nginx.conf:/etc/nginx/nginx.conf:ro
+      - /etc/ssl/cloudflare/cloudflare.crt:/etc/ssl/cloudflare/cloudflare.crt:ro  # SSL certificate
+      - /etc/ssl/cloudflare/cloudflare.key:/etc/ssl/cloudflare/cloudflare.key:ro  # SSL certificate key
       - static_volume:/vol/static
       - media_volume:/vol/media
     ports:
