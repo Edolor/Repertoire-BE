@@ -7,7 +7,7 @@ BACKUP_FILE="$BASE_PATH/web/db_backup.json"
 FILE_NAME="db_backup.json"
 
 # Run the dumpdata command inside the Docker container
-sudo docker exec -it app_backend_1 python manage.py dumpdata --exclude=auth.group --exclude=auth.permission --exclude=contenttypes --output=/home/app/web/db_backup.json
+sudo docker exec -i app_backend_1 python manage.py dumpdata --exclude=auth.group --exclude=auth.permission --exclude=contenttypes --output=/home/app/web/db_backup.json
 
 sudo docker cp app_backend_1:/home/app/web/$FILE_NAME $BASE_PATH/$FILE_NAME
 

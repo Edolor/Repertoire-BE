@@ -13,8 +13,6 @@ echo "Successfully changed! Continuing..."
 chmod +x fetch_env.sh  # Make script executable
 ./fetch_env.sh         # Generate .env file
 
-
-
 mv /home/ec2-user/app/scripts/.env /home/ec2-user/app
 
 echo "Completed fetch_env()... Continuing"
