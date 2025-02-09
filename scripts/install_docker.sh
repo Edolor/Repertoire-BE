@@ -34,28 +34,28 @@ aws s3 cp s3://menaportfolio/cloudflare/nginx.conf /etc/ssl/cloudflare/nginx.con
 
 # Setup cron details
 # Path to the script and log file
-# BASE_PATH="/home/ec2-user/app"
+BASE_PATH="/home/ec2-user/app"
 
-# ls /home/ec2-user
-# ls /home/ec2-user/app
-# chmod +x $BASE_PATH/scripts/dump_to_s3.sh
-# chmod +r $BASE_PATH/scripts/dump_to_s3.sh
+ls /home/ec2-user
+ls /home/ec2-user/app
+chmod +x $BASE_PATH/scripts/dump_to_s3.sh
+chmod +r $BASE_PATH/scripts/dump_to_s3.sh
 
-# ls /home
-# ls /home/ec2-user/app/scripts
-# cat $BASE_PATH/scripts/dump_to_s3.sh
-# chmod +x $BASE_PATH/scripts/dump_to_s3.sh
+ls /home
+ls /home/ec2-user/app/scripts
+cat $BASE_PATH/scripts/dump_to_s3.sh
+chmod +x $BASE_PATH/scripts/dump_to_s3.sh
 
-# SCRIPT_PATH="$BASE_PATH/scripts/dump_to_s3.sh"
-# LOG_FILE="$BASE_PATH/scripts/dump_to_s3.log"
+SCRIPT_PATH="$BASE_PATH/scripts/dump_to_s3.sh"
+LOG_FILE="$BASE_PATH/scripts/dump_to_s3.log"
 
-# # Define the cron job command
-# CRON_JOB="*/5 * * * * $SCRIPT_PATH >> $LOG_FILE 2>&1"
+# Define the cron job command
+CRON_JOB="*/5 * * * * $SCRIPT_PATH >> $LOG_FILE 2>&1"
 
-# # Check if the cron job already exists
-# (crontab -l | grep -q "$SCRIPT_PATH") && echo "Cron job already exists." || (
-#     # Add the cron job if it doesn't exist
-#     echo "Setting up the cron job to run every 5 minutes..."
-#     (crontab -l ; echo "$CRON_JOB") | crontab -
-#     echo "Cron job has been added successfully!"
-# )
+# Check if the cron job already exists
+(crontab -l | grep -q "$SCRIPT_PATH") && echo "Cron job already exists." || (
+    # Add the cron job if it doesn't exist
+    echo "Setting up the cron job to run every 5 minutes..."
+    (crontab -l ; echo "$CRON_JOB") | crontab -
+    echo "Cron job has been added successfully!"
+)
