@@ -36,6 +36,8 @@ services:
       - /etc/ssl/cloudflare/cloudflare.key:/etc/ssl/cloudflare/cloudflare.key:ro  # SSL certificate key
       - static_volume:/vol/static
       - media_volume:/vol/media
+    networks:
+      - server-side
     ports:
       - "80:80"  # Expose port 80 for HTTP traffic
       - "443:443"  # HTTPS traffic
@@ -45,8 +47,6 @@ services:
   database:
     image: postgres
     shm_size: 500mb
-    environment:
-      POSTGRES_PASSWORD: Jz23dds/1!@##!@.23
     networks:
       - server-side
     volumes:
