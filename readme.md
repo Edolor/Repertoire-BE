@@ -1,0 +1,1 @@
+python manage.py dumpdata --exclude=auth.group --exclude=contenttypes --output=*.json
