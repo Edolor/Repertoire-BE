@@ -6,7 +6,7 @@ from .views import HealthCheckView
 
 urlpatterns = [
     path('', HealthCheckView.as_view(), name="health"),
-    path('admin/GbxdJqi93laTCPC', admin.site.urls),
+    path('admin/GbxdJqi93laTCPC/', admin.site.urls),
     path('projects/', include("project.urls")),
     path('contact/', include("contact.urls")),
     path('about/', include("about.urls")),
