@@ -8,5 +8,6 @@ aws ssm get-parameter --name "Portfolio" --with-decryption --query "Parameter.Va
 
 # Fetch initial database backup
 aws s3 cp s3://menaportfolio/database/backup.json ../backup.json
+aws s3 cp s3://menaportfolio/database/db_backup.json ../db_backup.json
 
 echo ".env file created successfully!"
