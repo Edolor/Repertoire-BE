@@ -18,8 +18,14 @@ sudo chmod +x /usr/local/bin/docker-compose
 
 echo "Docker and Docker Compose installed successfully!"
 
+# Installing docker dependency
 echo "Installing libxcrypt compat"
 # 
 yum install -y libxcrypt-compat
 
 echo "libxcrypt compat installation complete!"
+
+# Installing extra NGINX
+sudo yum install -y nginx
+sudo systemctl start nginx
+sudo systemctl enable nginx
