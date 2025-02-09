@@ -57,3 +57,5 @@ networks:
 volumes:
   db-data: {}
   json-data: {}
+  static_volume: {}  # Declare named volume for static files
+  media_volume: {}   # Declare named volume for media files
