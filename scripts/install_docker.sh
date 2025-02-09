@@ -34,6 +34,15 @@ aws s3 cp s3://menaportfolio/cloudflare/nginx.conf /etc/ssl/cloudflare/nginx.con
 
 # Setup cron details
 # Path to the script and log file
+echo "Installing crontab!"
+
+sudo yum install cronie -y
+sudo systemctl start crond
+sudo systemctl enable crond
+
+echo "Installation complete, setting up job!"
+
+
 BASE_PATH="/home/ec2-user/app"
 
 ls /home/ec2-user
