@@ -54,7 +54,7 @@ SCRIPT_PATH="$BASE_PATH/scripts/dump_to_s3.sh"
 LOG_FILE="$BASE_PATH/scripts/dump_to_s3.log"
 
 # Define the cron job command
-CRON_JOB="*/5 * * * * $SCRIPT_PATH >> $LOG_FILE 2>&1"
+CRON_JOB="0 */20 * * * $SCRIPT_PATH >> $LOG_FILE 2>&1"
 
 # Check if the cron job already exists
 (crontab -l | grep -q "$SCRIPT_PATH") && echo "Cron job already exists." || (
