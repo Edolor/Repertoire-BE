@@ -14,11 +14,13 @@ class AboutList(APIView):
     """
 
     def get(self, request):
-        awards = Honour.objects.filter(type="a")
-        certifications = Honour.objects.filter(type="c")
+        awards = Honour.objects.filter(type="a").order_by("-issue_date")
+        certifications = Honour.objects.filter(
+            type="c").order_by("-issue_date")
 
-        experiences = Experience.objects.filter(type="w")
-        education = Experience.objects.filter(type="e")
+        experiences = Experience.objects.filter(
+            type="w").order_by("-start_date")
+        education = Experience.objects.filter(type="e").order_by("-start_date")
 
         awards_serializer = HonourSerializer(awards, many=True)
         certification_serializer = HonourSerializer(certifications, many=True)
